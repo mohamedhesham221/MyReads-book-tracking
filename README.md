@@ -21,7 +21,7 @@ This is a SPA(single-page-application) and it represents a virtual book shelves 
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://my-reads-book-tracking.vercel.app/](https://my-reads-book-tracking.vercel.app/)
 
 ### Screenshots
 
@@ -42,7 +42,8 @@ I created the app from scratch with `create-react-app` and i divided the app to 
 ### Backend Server
 
 The provided file `BooksAPI.js` contains following methods to perform necessary operations on the backend:
--`getAll()` for getting all your books.
--`update()` for updating shelf.
--`search()` for searching books while typing in input field.
--`get()` for getting book details
+
+- `getAll()` for getting all your books.
+- `update()` for updating shelf.
+- `search()` for searching books while typing in input field.
+- `get()` for getting book details
