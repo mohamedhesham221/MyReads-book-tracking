@@ -17,7 +17,7 @@ const BookShelfPage = () => {
       setWantToBooks(books.filter((book) => book.shelf === "wantToRead"));
       setRead(books.filter((book) => book.shelf === "read"));
     });
-  }, []);
+  }, [currentlyReading, wantToRead, read]);
   return (
     <>
       <header className="reads-header">
