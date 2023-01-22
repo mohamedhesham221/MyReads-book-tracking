@@ -3,7 +3,6 @@ import * as BooksAPI from "../../BooksApi"
 
 const WantToRead = ({shelf}) => {
   const [isVisible, setVisible] = useState(null);
-  console.log(shelf);
     return (
     <>
     <section>

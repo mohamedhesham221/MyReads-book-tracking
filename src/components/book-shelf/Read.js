@@ -4,7 +4,6 @@ import * as BooksAPI from "../../BooksApi"
 const Read = ({shelf}) => {
   const [isVisible, setVisible] = useState(null);
 
-  console.log(shelf);
     return (
     <>
     <section>

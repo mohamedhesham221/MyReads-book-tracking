@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as BooksAPI from "../../BooksApi"
 const CuurRead = ({ shelf }) => {
-  console.log(shelf);
   const [isVisible, setVisible] = useState(null);
   return (
     <>
