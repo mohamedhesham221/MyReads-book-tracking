@@ -12,11 +12,20 @@ const BookShelfPage = () => {
   const [booksState, setBooksState] = useState([]);
 
   // get all the books from the backend server and and filter it into 3 shelves
-  BooksAPI.getAll().then((books) => {
-    setBooksState(books);
-  });
-
   useEffect(() => {
+    //get books for first time component render
+    BooksAPI.getAll().then((books) => {
+      setBooksState(books);
+    });
+  }, []);
+  const getMyBooks = () => {
+    //get books for every time component update
+    BooksAPI.getAll().then((books) => {
+      setBooksState(books);
+    });
+  };
+  useEffect(() => { 
+    // handle books for own shelf
     setCrrBooks(booksState.filter((book) => book.shelf === "currentlyReading"));
     setWantToBooks(booksState.filter((book) => book.shelf === "wantToRead"));
     setRead(booksState.filter((book) => book.shelf === "read"));
@@ -30,9 +39,9 @@ const BookShelfPage = () => {
         <Link to="/search-page" className="add-book" title="add new book">
           ✚
         </Link>
-        <CurrRead shelf={currentlyReading} />
-        <WantToRead shelf={wantToRead} />
-        <Read shelf={read} />
+        <CurrRead shelf={currentlyReading} getMyBooks={getMyBooks} />
+        <WantToRead shelf={wantToRead} getMyBooks={getMyBooks} />
+        <Read shelf={read} getMyBooks={getMyBooks} />
       </div>
     </>
   );

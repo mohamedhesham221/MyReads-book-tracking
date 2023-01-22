@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as BooksAPI from "../../BooksApi"
-const CuurRead = ({ shelf }) => {
+const CuurRead = ({ shelf ,getMyBooks}) => {
   const [isVisible, setVisible] = useState(null);
   return (
     <>
@@ -36,7 +36,7 @@ const CuurRead = ({ shelf }) => {
                 value={book.shelf}
                 className={isVisible === book.title ? "show-selectbox" : null}
                 onChange={(e) => {
-                  BooksAPI.update(book, e.target.value)
+                  BooksAPI.update(book, e.target.value).then(getMyBooks())
                 }}
               >
                 <option disabled>move to ...</option>
