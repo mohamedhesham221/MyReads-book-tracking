@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import SearchPage from './views/SearchPage';
+import MainPage from './views/MainPage';
 
+/*the app divided into two views and each view have specific components functionality
+  -<MainPage />
+  -<searchPage />
+*/
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route exact path='*' element={<MainPage/>} />
+        <Route exact path='/search-page' element={<SearchPage />} />
+      </Routes>
     </div>
   );
 }
