@@ -9,15 +9,18 @@ const BookShelfPage = () => {
   const [currentlyReading, setCrrBooks] = useState([]);
   const [wantToRead, setWantToBooks] = useState([]);
   const [read, setRead] = useState([]);
+  const [booksState, setBooksState] = useState([]);
 
   // get all the books from the backend server and and filter it into 3 shelves
+  BooksAPI.getAll().then((books) => {
+    setBooksState(books);
+  });
+
   useEffect(() => {
-    BooksAPI.getAll().then((books) => {
-      setCrrBooks(books.filter((book) => book.shelf === "currentlyReading"));
-      setWantToBooks(books.filter((book) => book.shelf === "wantToRead"));
-      setRead(books.filter((book) => book.shelf === "read"));
-    });
-  }, []);
+    setCrrBooks(booksState.filter((book) => book.shelf === "currentlyReading"));
+    setWantToBooks(booksState.filter((book) => book.shelf === "wantToRead"));
+    setRead(booksState.filter((book) => book.shelf === "read"));
+  }, [booksState]);
   return (
     <>
       <header className="reads-header">
