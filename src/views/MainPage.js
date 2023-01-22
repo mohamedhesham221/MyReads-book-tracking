@@ -11,13 +11,11 @@ const BookShelfPage = () => {
   const [read , setRead]= useState([]);
 
   // get all the books from the backend server and and filter it into 3 shelves 
-  (function() {
     BooksAPI.getAll().then((books) => {
       setCrrBooks(books.filter(book=> book.shelf === "currentlyReading"))
       setWantToBooks(books.filter(book=> book.shelf === "wantToRead"))
       setRead(books.filter(book=> book.shelf === "read"))
     })
-  })()
 
   return (
     <>
