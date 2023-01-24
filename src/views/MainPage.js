@@ -9,39 +9,29 @@ const BookShelfPage = () => {
   const [currentlyReading, setCrrBooks] = useState([]);
   const [wantToRead, setWantToBooks] = useState([]);
   const [read, setRead] = useState([]);
-  const [booksState, setBooksState] = useState([]);
+  // const [booksState, setBooksState] = useState([]);
 
   // get all the books from the backend server and and filter it into 3 shelves
-  useEffect(() => {
-    //get books for first time component render
-    BooksAPI.getAll().then((books) => {
-      setBooksState(books);
-    });
-  }, []);
-  const getMyBooks = () => {
-    //get books for every time component update
-    BooksAPI.getAll().then((books) => {
-      setBooksState(books);
-    });
-  };
-  useEffect(() => { 
+    useEffect(() => { 
+      BooksAPI.getAll().then((books) => {
+        setCrrBooks(books.filter((book) => book.shelf === "currentlyReading"));
+        setWantToBooks(books.filter((book) => book.shelf === "wantToRead"));
+        setRead(books.filter((book) => book.shelf === "read"));
+      });
     // handle books for own shelf
-    setCrrBooks(booksState.filter((book) => book.shelf === "currentlyReading"));
-    setWantToBooks(booksState.filter((book) => book.shelf === "wantToRead"));
-    setRead(booksState.filter((book) => book.shelf === "read"));
-  }, [booksState]);
+  }, [currentlyReading, wantToRead, read]);
   return (
     <>
       <header className="reads-header">
         <h1>MyReads</h1>
       </header>
       <div className="container">
-        <Link to="/search-page" className="add-book" title="add new book">
+        <Link to="/search" className="add-book" title="add new book">
           ✚
         </Link>
-        <CurrRead shelf={currentlyReading} getMyBooks={getMyBooks} />
-        <WantToRead shelf={wantToRead} getMyBooks={getMyBooks} />
-        <Read shelf={read} getMyBooks={getMyBooks} />
+        <CurrRead shelf={currentlyReading} />
+        <WantToRead shelf={wantToRead}/>
+        <Read shelf={read}/>
       </div>
     </>
   );

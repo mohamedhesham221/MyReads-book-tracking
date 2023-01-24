@@ -1,60 +1,17 @@
-import { useState } from "react";
-import * as BooksAPI from "../../BooksApi"
+import PropTypes from "prop-types";
+import Book from "../Book";
 
-const Read = ({shelf, getMyBooks}) => {
-  const [isVisible, setVisible] = useState(null);
-
-    return (
+const Read = ({ shelf }) => {
+  return (
     <>
-    <section>
-    <h2 className="mybooks-heading">Read</h2>
-    <div className="books-container">
-      {/*book details*/}
-    {shelf.map((book) => {
-            return (
-              <figure key={book.id} className="book">
-                <img
-                  src={book.imageLinks.thumbnail}
-                  alt={book.title}
-                  className="book-thumb"
-                />
-                <figcaption>
-                  <p className="book-title">{book.title}</p>
-                  <p className="book-author">
-                    {book.authors && book.authors.join(`\n`)}
-                  </p>
-                </figcaption>
-                <button
-              className="open-selectbox"
-              onClick={() => {
-                setVisible(book.title);
-              }}
-            >
-              ▼
-            </button>
-            <div className="shelf-changer">
-              <select
-                size="5"
-                value={book.shelf}
-                className={isVisible === book.title ? "show-selectbox" : null}
-                onChange={(e) => {
-                  BooksAPI.update(book, e.target.value).then(getMyBooks())
-                }}
-              >
-                <option disabled>move to ...</option>
-                <option value="currentlyReading">currently reading</option>
-                <option value="wantToRead">Want to read</option>
-                <option value="read">read</option>
-                <option value="none">none</option>
-              </select>
-            </div>
-              </figure>
-            );
-          })}
-
-    </div>
-    </section>
+      <section>
+        <h2 className="mybooks-heading">Read</h2>
+        <Book books={shelf} />
+      </section>
     </>
-  )
-}
+  );
+};
 export default Read;
+Read.prototype = {
+  shelf: PropTypes.array,
+};

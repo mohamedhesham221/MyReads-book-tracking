@@ -130,6 +130,10 @@ input::placeholder {
 .shelf-changer option:hover {
   cursor: pointer;
 }
+.shelf-changer option:checked {
+  background-color: var(--BgColor);
+  color: var(--textColor);
+}
 .shelf-changer select:hover > :not(option:hover) {
   opacity: .5;
 }

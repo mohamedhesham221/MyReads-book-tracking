@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path='*' element={<MainPage/>} />
-        <Route exact path='/search-page' element={<SearchPage />} />
+        <Route exact path='/search' element={<SearchPage />} />
       </Routes>
     </div>
   );

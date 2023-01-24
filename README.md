@@ -8,6 +8,8 @@
   -[Screenshots](#screenshots)
 - [My process](#my-process)
   - [Built with](#built-with)
+-[Installation](#installation)
+  - [Important](#important)
 
 ## Overview
 
@@ -47,3 +49,16 @@ The provided file `BooksAPI.js` contains following methods to perform necessary 
 - `update()` for updating shelf.
 - `search()` for searching books while typing in input field.
 - `get()` for getting book details
+
+## Installation
+
+Clone the repository, and install dependencies using NPM and start local host
+
+- clone the repo `git clone https://github.com/mohamedhesham221/MyReads-book-tracking`
+- install dependencies `npm install`
+- start project with `npm start`
+- it can be viewed in the browser at `http://localhost:3000`
+
+### Important
+
+The backend API is built by Udacity and only a fixed set of search terms are supported. Supported search terms can be found in [SEARCH_TERMS.md](https://github.com/THEPEACEMAKER/myReads-book-tracking-app/blob/master/SEARCH_TERMS.md)That list of terms are the only terms that will work with the API.
