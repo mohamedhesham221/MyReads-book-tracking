@@ -15,11 +15,16 @@
 
 ### About
 
-This is a SPA(single-page-application) and it represents a virtual book shelves to store your books and track what you're reading. MyReads lets you manage your digital bookshelf. It supports three shelves are:
+📚 Book Tracker Project:
+Introducing my latest project - a Book Tracker that empowers you to organize and categorize your reading journey! Whether you're an avid bookworm, a casual reader, or just starting your literary adventure, this tool is designed to help you keep track of the books you've read, are currently reading, or aspire to read in the future.
 
-- Currently Reading.
-- Want To Read.
-- Read.
+🔍 Key Features:
+
+Categorization: Easily categorize your books into "Read," "Currently Reading," or "Want to Read" shelves for better organization.
+Book Details: Access comprehensive details about each book, including title, author, cover image, synopsis, and publication information.
+Personal Notes: Add personal notes, thoughts, or reviews to remember your impressions of each book.
+Search and Filter: Quickly find books by title, author, or genre using the search and filter functionalities.
+User-Friendly Interface: Enjoy a clean and intuitive user interface that makes managing your book collection a breeze.
 
 ### Links
 
